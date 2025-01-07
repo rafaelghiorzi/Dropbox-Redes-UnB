@@ -1,0 +1,7 @@
+# Arquivos para ignorar
+
+# pastas do pycache, .venv e arquivos .db
+__pycache__/   
+.venv/
+*.db
+uploads/
