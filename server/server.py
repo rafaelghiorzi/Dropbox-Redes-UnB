@@ -8,7 +8,8 @@ from files import list_files, upload, download, delete_file
 from utils import http_response
 
 # configuração do servidor
-HOST = '0.0.0.0'
+#HOST = '0.0.0.0'
+HOST = '127.0.0.1'
 PORT = 8080
 UPLOAD_DIR = 'uploads'
 
@@ -52,8 +53,6 @@ def handle_request(client_socket):
             request_data += chunk
             if b'\r\n\r\n' in request_data and len(chunk) < 4096:
                 break
-            
-        print(f'\n\nConnection incoming from {client_socket.getpeername()}')
         
         # Dividindo cabeçalhos e corpo da requisição
         headers_end = request_data.find(b'\r\n\r\n')
@@ -91,7 +90,10 @@ def handle_request(client_socket):
                 response = http_response(404, 'Not Found')
         
         client_socket.sendall(response)
-        print(request, '\n\n\n\n', response)
+        os.system('cls')
+        print(f'Request: {request_data.decode("utf-8")}\n')
+        print(f'Response: {response.decode("utf-8")}\n')
+        print(f'Response sent to {client_socket.getpeername()}\n')
         
     except Exception as e:
         print(f'Error handling request: {e}')

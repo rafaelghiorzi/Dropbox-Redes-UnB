@@ -5,7 +5,8 @@ import time
 import mimetypes
 
 # Configuração do servidor e cliente
-HOST = '192.168.1.106'
+#HOST = '0.0.0.0'
+HOST = '127.0.0.1'
 
 SERVER_PORT = 8080
 CLIENT_PORT = 50000
@@ -30,8 +31,6 @@ def login():
         headers = (
             f'POST /user/login HTTP/1.1\r\n'
             f'Host: {HOST}:{SERVER_PORT}\r\n'
-            f'Content-Type: application/json\r\n'
-            f'Content-Length: {len(body)}\r\n'
             f'\r\n'
         )
         request = headers + body
@@ -80,8 +79,6 @@ def register():
         headers = (
             f'POST /user/register HTTP/1.1\r\n'
             f'Host: {HOST}:{SERVER_PORT}\r\n'
-            f'Content-Type: application/json\r\n'
-            f'Content-Length: {len(body)}\r\n'
             f'\r\n'
         )
         request = headers + body
@@ -292,7 +289,6 @@ def download_file():
         headers = (
             f'GET /files/download HTTP/1.1\r\n'
             f'Host: {HOST}:{SERVER_PORT}\r\n'
-            f'Content-Type: application/json\r\n'
             f'Content-Length: {len(body)}\r\n'
             f'\r\n'
             f'{body}'
@@ -397,8 +393,6 @@ def delete_file():
         headers = (
             f'DELETE /files HTTP/1.1\r\n'
             f'Host: {HOST}:{SERVER_PORT}\r\n'
-            f'Content-Type: application/json\r\n'
-            f'Content-Length: {len(body)}\r\n'
             f'\r\n'
         )
         request = headers + body
@@ -440,8 +434,6 @@ def delete_user():
         headers = (
             f'DELETE /user HTTP/1.1\r\n'
             f'Host: {HOST}:{SERVER_PORT}\r\n'
-            f'Content-Type: application/json\r\n'
-            f'Content-Length: {len(body)}\r\n'
             f'\r\n'
         )
         request = headers + body

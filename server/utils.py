@@ -5,10 +5,6 @@ def http_response(status_code, body, content_type='text/plain'):
     
     headers = [
         f'HTTP/1.1 {status_code} {status_messages[status_code]}',
-        'Access-Control-Allow-Origin: *',
-        'Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS',
-        'Access-Control-Allow-Headers: Content-Type',
-        'Access-Control-Allow-Credentials: true',
         f'Content-Type: {content_type}'
     ]
     
