@@ -15,6 +15,7 @@ Este é um sistema distribuído que atua como um “dropbox” de rede interna, 
 
 - Permite registrar, logar e deletar usuários.
 - Realiza upload, download e deleção de arquivos, mostrando a lista de arquivos disponíveis na rede.
+- Assista o [vídeo de demonstração do projeto](https://youtu.be/2H6uyJMo8C0) para entender melhor o funcionamento dele.
 
 ## Como rodar
 
