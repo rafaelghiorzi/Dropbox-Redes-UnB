@@ -4,7 +4,10 @@ _Projeto da matéria redes de computadores, 2024.2 - UnB_
 
 ## Descrição do projeto
 
-Este é um sistema distribuído que atua como um “dropbox” de rede interna, possibilitando colaboração e troca de arquivos de forma simples e direta.
+Esse projeto é uma aplicação do conteúdo ministrado na Disciplina de Redes de Computadores da [Universidade de Brasília](https://www.unb.br). O sistema aplica os conhecimentos a respeito de sockets, paradigma cliente e servidor e sistemas de redes em um projeto de *Dropbox de rede interna*.
+
+## Tecnologias
+O projeto faz uso principalmente das bibliotecas Sockets e SQLite3 do python para administração de usuários e upload e download de arquivos. Os sockets foram configurados para seguir o protocolo TCP de transporte, e as mensagens seguem o padrão de mensagens HTTP simplificadas. Na parte do cliente, foi desenvolvido, também em python, uma aplicação simples e interativa no terminal de comando do computador, em que o usuário navega pelas diferentes funcionalidades a partir de entradas numéricas no teclado.
 
 ## Como funciona
 
@@ -35,6 +38,8 @@ python main.py
 ```
 
 6. Aproveite!
+
+*Observação: para realizar o upload de arquivos, basta copiar um arquivo no explorador do seu computador com o atalho Ctrl+Shift+C se estiver no Windows. Isso copiará o caminho do arquivo, que você pode então enviar para o servidor*.
 
 ## Licença
 
