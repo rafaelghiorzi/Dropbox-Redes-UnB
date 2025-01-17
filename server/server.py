@@ -6,6 +6,7 @@ import signal
 from user import register, login, delete_user, list_users
 from files import list_files, upload, download, delete_file
 from utils import http_response
+import threading
 
 # configuração do servidor
 #HOST = '0.0.0.0'
@@ -124,7 +125,8 @@ def start_server():
     
     while True:
         client_socket, _ = server_socket.accept()
-        handle_request(client_socket)
+        client_thread = threading.Thread(target=handle_request, args=(client_socket,))
+        client_thread.start()
         
 if __name__ == '__main__':
     start_server()
