@@ -23,13 +23,13 @@ def login():
     password = input().strip()
     
     body = json.dumps({ 'username': username, 'password': password })
-    headers = f'POST /user/login  HTTP/1.1\r\nContent-Type: application/json\r\nContent-Length: {len(body)}\r\n\r\n'
+    headers = f'POST /user/login  \r\nContent-Type: application/json\r\nContent-Length: {len(body)}\r\n\r\n'
     request = headers + body
     try:
         # Preparando o request
         body = json.dumps({ 'username': username, 'password': password })
         headers = (
-            f'POST /user/login HTTP/1.1\r\n'
+            f'POST /user/login \r\n'
             f'Host: {HOST}:{SERVER_PORT}\r\n'
             f'\r\n'
         )
@@ -77,7 +77,7 @@ def register():
         # Criando o request
         body = json.dumps({ 'username': username, 'password': password })
         headers = (
-            f'POST /user/register HTTP/1.1\r\n'
+            f'POST /user/register \r\n'
             f'Host: {HOST}:{SERVER_PORT}\r\n'
             f'\r\n'
         )
@@ -137,7 +137,7 @@ def list_files():
     try:
         # Preparando o request
         headers = (
-            f'GET /files HTTP/1.1\r\n'
+            f'GET /files \r\n'
             f'Host: {HOST}:{SERVER_PORT}\r\n'
             f'\r\n'
         )
@@ -209,7 +209,7 @@ def upload_file():
         ).encode('utf-8') + file_data + f'\r\n--{boundary}--\r\n'.encode('utf-8')
         
         headers = (
-            f'POST /files/upload HTTP/1.1\r\n'
+            f'POST /files/upload \r\n'
             f'Host: {HOST}:{SERVER_PORT}\r\n'
             f'Content-Type: multipart/form-data; boundary={boundary}\r\n'
             f'Content-Length: {len(body)}\r\n'
@@ -250,7 +250,7 @@ def download_file():
     try:
         # Prepara request da lista de arquivos
         headers = (
-            f'GET /files HTTP/1.1\r\n'
+            f'GET /files \r\n'
             f'Host: {HOST}:{SERVER_PORT}\r\n'
             f'\r\n'
         )
@@ -287,7 +287,7 @@ def download_file():
         filename = lista[escolha][1]
         body = json.dumps({'filename': filename})
         headers = (
-            f'GET /files/download HTTP/1.1\r\n'
+            f'GET /files/download \r\n'
             f'Host: {HOST}:{SERVER_PORT}\r\n'
             f'Content-Length: {len(body)}\r\n'
             f'\r\n'
@@ -353,7 +353,7 @@ def delete_file():
     try:
         # Preparando request de listagem de arquivos
         headers = (
-            f'GET /files HTTP/1.1\r\n'
+            f'GET /files \r\n'
             f'Host: {HOST}:{SERVER_PORT}\r\n'
             f'\r\n'
         )
@@ -391,7 +391,7 @@ def delete_file():
         # Preparando request de DELETE
         body = json.dumps({'filename': lista[escolha][1], 'username': USERNAME })
         headers = (
-            f'DELETE /files HTTP/1.1\r\n'
+            f'DELETE /files \r\n'
             f'Host: {HOST}:{SERVER_PORT}\r\n'
             f'\r\n'
         )
@@ -432,7 +432,7 @@ def delete_user():
     try:    
         body = json.dumps({ 'username': USERNAME})
         headers = (
-            f'DELETE /user HTTP/1.1\r\n'
+            f'DELETE /user \r\n'
             f'Host: {HOST}:{SERVER_PORT}\r\n'
             f'\r\n'
         )
@@ -469,7 +469,7 @@ def list_users():
     os.system('cls')
     try:
         headers = (
-            f'GET /user HTTP/1.1\r\n'
+            f'GET /user \r\n'
             f'Host: {HOST}:{SERVER_PORT}\r\n'
             f'\r\n'
         )
@@ -552,7 +552,7 @@ def logged():
 # Se estiver, continuar com o programa
 try:
     headers = (
-        f'GET / HTTP/1.1\r\n'
+        f'GET / \r\n'
         f'Host: {HOST}:{SERVER_PORT}\r\n'
         f'\r\n'
     )

@@ -4,7 +4,7 @@ def http_response(status_code, body, content_type='text/plain'):
                       404: 'Not Found', 500: 'Internal Server Error'}
     
     headers = [
-        f'HTTP/1.1 {status_code} {status_messages[status_code]}',
+        f' {status_code} {status_messages[status_code]}',
         f'Content-Type: {content_type}'
     ]
     

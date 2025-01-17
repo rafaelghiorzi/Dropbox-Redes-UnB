@@ -115,7 +115,7 @@ def download(headers, body):
         # Criando cabeçalho HTTP
         content_type = mimetypes.guess_type(filepath)[0] or 'application/octet-stream'
         headers = (
-            f'HTTP/1.1 200 OK\r\n'
+            f' 200 OK\r\n'
             f'Content-Type: {content_type}\r\n' 
             f'Content-Disposition: attachment; filename={filename}\r\n'
             f'Content-Length: {len(file_content)}\r\n'
